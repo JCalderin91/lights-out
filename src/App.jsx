@@ -9,25 +9,29 @@ const gameWinAudio = new Audio(gameWinAudioSource);
 const switchAudio = new Audio(switchAudioSource);
 
 import "./App.css";
+import { ChangeDifficulty } from "./ui/atoms/ChangeDifficulty";
 
-const ROWS_COUNT = 3;
-const COLS_COUNT = 3;
 const PERCENT = 0.5;
 
 function App() {
   const [board, setBoard] = useState([]);
   const [winner, setWinner] = useState(false);
   const [intents, setIntents] = useState(0);
+  const [level, setLevel] = useState(2);
 
   useEffect(() => {
-    createBoard();
+    createBoard(level);
   }, []);
 
-  const createBoard = () => {
+  useEffect(() => {
+    resetBoard();
+  }, [level]);
+
+  const createBoard = (size) => {
     let board = [];
-    for (let y = 0; y < ROWS_COUNT; y++) {
+    for (let y = 0; y < size; y++) {
       let rows = [];
-      for (let x = 0; x < COLS_COUNT; x++) {
+      for (let x = 0; x < size; x++) {
         rows.push({
           position: { x, y },
           active: Math.random() <= PERCENT,
@@ -48,11 +52,9 @@ function App() {
     //current col
     newBoard[y][x].active = !newBoard[y][x].active;
 
-    if (y < ROWS_COUNT - 1)
-      newBoard[y + 1][x].active = !newBoard[y + 1][x].active;
+    if (y < level - 1) newBoard[y + 1][x].active = !newBoard[y + 1][x].active;
     if (y > 0) newBoard[y - 1][x].active = !newBoard[y - 1][x].active;
-    if (x < COLS_COUNT - 1)
-      newBoard[y][x + 1].active = !newBoard[y][x + 1].active;
+    if (x < level - 1) newBoard[y][x + 1].active = !newBoard[y][x + 1].active;
     if (x > 0) newBoard[y][x - 1].active = !newBoard[y][x - 1].active;
 
     setBoard(newBoard);
@@ -67,8 +69,14 @@ function App() {
 
   const resetBoard = () => {
     setWinner(false);
-    createBoard();
+    createBoard(level);
     setIntents(0);
+  };
+
+  const changeDifficulty = () => {
+    setLevel((level) => {
+      return level < 4 ? level + 1 : 2;
+    });
   };
 
   return (
@@ -106,6 +114,7 @@ function App() {
       <div className="actions">
         <Button onClick={resetBoard}>Reset lights</Button>
       </div>
+      <ChangeDifficulty level={level} onClick={changeDifficulty} />
     </div>
   );
 }
