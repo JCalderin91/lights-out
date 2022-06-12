@@ -69,7 +69,7 @@ function App() {
       <h3 className="intents">Intents: {intents}</h3>
       {winner ? (
         <div className="you-win">
-          <h3>Ganaste</h3>
+          <h3>You Win!</h3>
         </div>
       ) : (
         <table className="board">
@@ -94,7 +94,7 @@ function App() {
         </table>
       )}
       <div className="actions">
-        <Button onClick={resetBoard}>Reset</Button>
+        <Button onClick={resetBoard}>Reset lights</Button>
       </div>
     </div>
   );
