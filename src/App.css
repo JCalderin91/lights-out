@@ -1,0 +1,124 @@
+@font-face {
+  font-family: "Clip";
+  src: url("./assets/fonts/Clip.ttf");
+}
+body {
+  background-color: #252525;
+  color: white;
+  min-height: 100vh;
+  background-position: center;
+}
+.App {
+  margin: 0 auto;
+  padding: 1rem 1rem;
+  min-height: 100vh;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-family: "Clip";
+  text-align: center;
+  font-size: 4rem;
+  line-height: 4.5rem;
+}
+
+.title span:nth-child(1) {
+  color: #c1e6fc;
+  animation: neon-blue 1.5s infinite alternate-reverse ease-in-out;
+}
+.title span:nth-child(2) {
+  color: #f2e3ed;
+  animation: neon-pink 1s infinite alternate-reverse ease-in-out;
+}
+
+.intents {
+  text-align: center;
+  font-family: "Clip";
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.board {
+  display: block;
+  margin: 0 auto;
+}
+
+.board .row,
+.board .col {
+  background-color: rgb(59, 59, 59);
+}
+.board .row {
+  height: 64px;
+}
+.board .col {
+  width: 64px;
+}
+.board .col.active {
+  position: relative;
+}
+.board .col.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(219, 216, 200);
+  box-shadow: 0 0 12px 6px #ffffff41, 0 0 11px 20px #ffffff10,
+    0 0 30px 36px #ffffff0d;
+}
+.you-win {
+  text-align: center;
+  animation: neon-green 1.5s infinite alternate-reverse ease-in-out;
+  font-family: "Clip";
+  font-size: 2.5rem;
+}
+.actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+.custom-button {
+  border: 1px solid rgb(243, 165, 165);
+  padding: 0.5rem 1rem;
+  background-color: #a31e1e;
+  color: rgb(235, 194, 194);
+  border-radius: 0.3rem;
+  box-shadow: 0 0 5px #a31e1e, 0 0 15px #a31e1e, 0 0 25px #a31e1e;
+  font-family: "Clip";
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 1.15rem;
+}
+
+@keyframes neon-blue {
+  from {
+    text-shadow: 0 0 2px #0baeee, 0 0 6px #0baeee, 0 0 10px #0baeee;
+  }
+  to {
+    text-shadow: 0 0 5px #0baeee, 0 0 15px #0baeee, 0 0 25px #0baeee;
+  }
+}
+
+@keyframes neon-pink {
+  from {
+    text-shadow: 0 0 2px #f4429b, 0 0 6px #f4429b, 0 0 10px #f4429b;
+  }
+  to {
+    text-shadow: 0 0 5px #f4429b, 0 0 15px #f4429b, 0 0 25px #f4429bd8;
+  }
+}
+
+@keyframes neon-green {
+  from {
+    text-shadow: 0 0 2px #42f4b9, 0 0 6px #42f4b9, 0 0 10px #42f4b9;
+  }
+  to {
+    text-shadow: 0 0 5px #42f4b9, 0 0 15px #42f4b9, 0 0 25px #42f4b9d8;
+  }
+}
