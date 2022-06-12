@@ -31,18 +31,18 @@ export default defineConfig({
           start_url: '/',
           scope: ".",
           orientation: "portrait",
-          theme_color: '#15a6df',
+          theme_color: '#252525',
           icons: [
-            {
-              src: 'android-chrome-192x192.png',
-              sizes: '192x192',
-              type: 'image/png',
-            },
-            {
-              src: 'android-chrome-512x512.png',
-              sizes: '512x512',
-              type: 'image/png',
-            },
+            // {
+            //   src: 'android-chrome-192x192.png',
+            //   sizes: '192x192',
+            //   type: 'image/png',
+            // },
+            // {
+            //   src: 'android-chrome-512x512.png',
+            //   sizes: '512x512',
+            //   type: 'image/png',
+            // },
           ]
         },
         workbox: {
