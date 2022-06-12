@@ -11,7 +11,7 @@ const PERCENT = 0.5;
 
 function App() {
   const [board, setBoard] = useState([]);
-  const [winner, setWinner] = useState(true);
+  const [winner, setWinner] = useState(false);
   const [intents, setIntents] = useState(0);
 
   useEffect(() => {
