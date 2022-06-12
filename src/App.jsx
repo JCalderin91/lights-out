@@ -3,6 +3,11 @@ import { useState, useEffect } from "react";
 import { Row } from "./ui/atoms/Row";
 import { Button } from "./ui/atoms/Button";
 
+import gameWinAudioSource from "./assets/audios/game_win.mp3";
+import switchAudioSource from "./assets/audios/switch.mp3";
+const gameWinAudio = new Audio(gameWinAudioSource);
+const switchAudio = new Audio(switchAudioSource);
+
 import "./App.css";
 
 const ROWS_COUNT = 3;
@@ -51,6 +56,11 @@ function App() {
     if (x > 0) newBoard[y][x - 1].active = !newBoard[y][x - 1].active;
 
     setBoard(newBoard);
+    if (checkBoard()) {
+      switchAudio.play();
+    } else {
+      gameWinAudio.play();
+    }
     setWinner(!checkBoard());
     setIntents(intents + 1);
   };
