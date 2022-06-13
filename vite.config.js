@@ -25,24 +25,24 @@ export default defineConfig({
       {
         includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
         manifest: {
-          name: 'LigthsOut',
-          short_name: 'LigthsOut',
-          description: 'LigthsOut game developed with React.',
+          name: 'Ligths Out',
+          short_name: 'Ligths Out',
+          description: 'Ligths Out game developed with React.',
           start_url: '/',
           scope: ".",
           orientation: "portrait",
           theme_color: '#252525',
           icons: [
-            // {
-            //   src: 'android-chrome-192x192.png',
-            //   sizes: '192x192',
-            //   type: 'image/png',
-            // },
-            // {
-            //   src: 'android-chrome-512x512.png',
-            //   sizes: '512x512',
-            //   type: 'image/png',
-            // },
+            {
+              src: 'android-chrome-192x192.png',
+              sizes: '192x192',
+              type: 'image/png',
+            },
+            {
+              src: 'android-chrome-512x512.png',
+              sizes: '512x512',
+              type: 'image/png',
+            },
           ]
         },
         workbox: {

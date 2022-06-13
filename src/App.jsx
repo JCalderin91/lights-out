@@ -17,7 +17,7 @@ function App() {
   const [board, setBoard] = useState([]);
   const [winner, setWinner] = useState(false);
   const [intents, setIntents] = useState(0);
-  const [level, setLevel] = useState(2);
+  const [level, setLevel] = useState(3);
 
   useEffect(() => {
     createBoard(level);
